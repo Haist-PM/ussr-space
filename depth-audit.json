@@ -1,0 +1,90 @@
+{
+  "passed": true,
+  "hiddenCases": 3,
+  "results": [
+    {
+      "yaw": 0,
+      "phase": 0,
+      "withoutEarth": 0,
+      "withEarth": 0,
+      "occluded": false
+    },
+    {
+      "yaw": 0,
+      "phase": 90,
+      "withoutEarth": 121,
+      "withEarth": 121,
+      "occluded": false
+    },
+    {
+      "yaw": 0,
+      "phase": 180,
+      "withoutEarth": 0,
+      "withEarth": 0,
+      "occluded": false
+    },
+    {
+      "yaw": 0,
+      "phase": 270,
+      "withoutEarth": 20,
+      "withEarth": 0,
+      "occluded": true
+    },
+    {
+      "yaw": 0.55,
+      "phase": 0,
+      "withoutEarth": 0,
+      "withEarth": 0,
+      "occluded": false
+    },
+    {
+      "yaw": 0.55,
+      "phase": 90,
+      "withoutEarth": 110,
+      "withEarth": 110,
+      "occluded": false
+    },
+    {
+      "yaw": 0.55,
+      "phase": 180,
+      "withoutEarth": 33,
+      "withEarth": 33,
+      "occluded": false
+    },
+    {
+      "yaw": 0.55,
+      "phase": 270,
+      "withoutEarth": 26,
+      "withEarth": 0,
+      "occluded": true
+    },
+    {
+      "yaw": -0.65,
+      "phase": 0,
+      "withoutEarth": 31,
+      "withEarth": 31,
+      "occluded": false
+    },
+    {
+      "yaw": -0.65,
+      "phase": 90,
+      "withoutEarth": 87,
+      "withEarth": 87,
+      "occluded": false
+    },
+    {
+      "yaw": -0.65,
+      "phase": 180,
+      "withoutEarth": 1,
+      "withEarth": 1,
+      "occluded": false
+    },
+    {
+      "yaw": -0.65,
+      "phase": 270,
+      "withoutEarth": 30,
+      "withEarth": 0,
+      "occluded": true
+    }
+  ]
+}
