@@ -1,6 +1,6 @@
 {
   "name": "orbita-soviet-space",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "private": true,
   "type": "module",
   "description": "Самостоятельная интерактивная образовательная экспозиция",
@@ -8,7 +8,7 @@
     "dev": "npm run build && node server.mjs",
     "build": "node build.mjs",
     "preview": "node server.mjs dist",
-    "check": "node --check app.js && node --check src/museum.js && node --check src/models.js && node --check src/story-state.js && node --check src/interaction.js && node --check server.mjs && node --check build.mjs"
+    "check": "node --check app.js && node --check src/museum.js && node --check src/models.js && node --check src/story-state.js && node --check src/interaction.js && node --check server.mjs && node --check build.mjs && node --check src/starfield.js"
   },
   "engines": {
     "node": ">=20"

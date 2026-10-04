@@ -52,3 +52,21 @@ header{background:#070b10f5}.mobile-nav{background:#070b10}.narrative-visual{bac
 @media print{.scene-mask-layer,.detail-card,.viewer-tools,.marker-layer{display:none!important}.station-hold{height:auto;min-height:0}}
 @media(any-pointer:coarse){.hotspot-button{width:44px;height:44px}.details-menu summary,.details-options button{min-height:44px}.detail-close{width:44px;height:44px}}
 @media(max-width:760px){.narrative-step{scroll-margin-top:clamp(300px,44svh,420px)}.detail-card{max-height:124px}}
+
+/* Fifth pass: the same sky continues beneath every chapter and sticky viewport. */
+html{background:#070b10}body{background:transparent}
+.global-starfield{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.hero,.narrative,.narrative-copy,.chapter-body,.technology,.sources,.problems,.finale,.scene-meta,.webgl-unavailable .narrative-visual{background:transparent}
+.scene-mask,.mask-venus,.mask-mars{background:#070b10;overflow:hidden}
+.scene-mask canvas{display:block;position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.narrative-step h2,.narrative-step.is-current h2{animation:none!important;transform:none}
+.narrative-step .eyebrow{transition:none}
+.transition-step,.presenting .transition-step{min-height:145svh}
+.narrative-copy p,.narrative-copy h2,.technology-reading p,.sources,.scene-meta{text-shadow:0 1px 5px #070b10,0 0 12px #070b10}
+.viewer-tools button:disabled{opacity:.35;cursor:default}
+@media(max-width:760px){.transition-step,.presenting .transition-step{min-height:145svh}}
+@media print{.global-starfield{display:none!important}body,.narrative-copy{background:white}.transition-step,.presenting .transition-step{min-height:0}}
+
+/* A final transition must finish before its sticky viewport is released. */
+.transition-step:last-of-type,.presenting .transition-step:last-of-type{min-height:185svh}
+@media print{.transition-step:last-of-type,.presenting .transition-step:last-of-type{min-height:0}}
