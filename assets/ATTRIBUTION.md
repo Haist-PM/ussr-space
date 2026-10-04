@@ -24,3 +24,26 @@ NASA imagery is generally not subject to copyright in the United States; educati
 ## Библиотеки
 Three.js 0.180.0 — MIT License; copyright three.js authors. License retained as THREE-LICENSE.txt.
 Esbuild 0.25.10 — MIT License; build-time only.
+
+## Луна, Венера и Марс (третий проход)
+
+- `moon.jpg`, `mars.jpg`, `venus.jpg`: Solar System Scope, карты 2048×1024. Венера использует карту атмосферы, не изображение поверхности.
+- Каталог и авторство: https://edu.solarsystemscope.com/textures/
+- Лицензия: Creative Commons Attribution 4.0 International, https://creativecommons.org/licenses/by/4.0/
+- Исходные файлы: https://www.solarsystemscope.com/textures/download/2k_moon.jpg , https://www.solarsystemscope.com/textures/download/2k_mars.jpg , https://www.solarsystemscope.com/textures/download/2k_venus_atmosphere.jpg
+- Карты сохранены локально без изменения разрешения. Bump-рельеф Луны и Марса оценён по яркости цветовой карты для выразительности; это не высотная модель. Полярные области Марса входят в цветовую карту.
+
+## Новые технические реконструкции
+
+- «Восход-2»: общая геометрия семейства «Восток», надувной шлюз «Волга» с кольцами и газовыми баллонами, космонавт и фал. NASA mission report: https://sma.nasa.gov/SignificantIncidents/assets/spaceflight-mission-report_-voskhod-2.pdf
+- «Луноход-1»: корпус, восемь колёс, открытая солнечная крышка, камеры и антенны. NASA: https://science.nasa.gov/image-article/apod-1996-january-13-lunokhod-1-moon-robot/ ; техническая справка: https://ntrs.nasa.gov/api/citations/20000025059/downloads/20000025059.pdf
+- «Марс-3»: посадочная сфера, четыре опорных лепестка, антенны и условный парашют. NASA: https://science.nasa.gov/resource/could-this-be-the-mars-soviet-3-lander/ ; результаты миссии: https://www.giss.nasa.gov/tools/mars24/help/landers.html
+- «Салют-1» и «Мир»: NASA Mir Hardware Heritage, https://sma.nasa.gov/SignificantIncidents/assets/mir-hardware-heritage.pdf . У «Мира» показаны базовый блок, «Квант», «Квант-2» и «Кристалл» (советский этап). Стыковочная механика и мелкие приборы упрощены; модули «Спектр» и «Природа» отсутствуют.
+
+## Шрифт
+
+Manrope, Mikhail Sharanda и соавторы, переменный шрифт с кириллицей. Локальный файл `Manrope.ttf` из официального каталога Google Fonts: https://github.com/google/fonts/tree/main/ofl/manrope . SIL Open Font License 1.1 сохранена в `Manrope-LICENSE.txt`.
+
+## Условный масштаб движения
+
+Автоматическое вращение и движение от прокрутки художественно ускорены и не являются симуляцией времени. Наклоны: Земля 23,44°, Луна 6,68° относительно эклиптики, Марс 25,19°. Для Венеры использована эквивалентная запись оси 2,64° с обратным направлением вращения вместо 177,36° с прямым. Орбита спутника, взаимные масштабы аппаратов и планет, спуск и присоединение модулей условны.
