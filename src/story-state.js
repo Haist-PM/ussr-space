@@ -7,7 +7,8 @@ export function sampleSteps(rects,focus,{lastTravel}={}){
  const rect=rects[index],travel=index===rects.length-1&&lastTravel!=null?lastTravel:rect.height;
  const local=clamp((focus-rect.top)/Math.max(1,travel));return {index,local,progress:clamp((index+local)/rects.length)};
 }
-export function transitionAt(stage,local,reduced=false,span=.38){return stage===0||reduced?1:smooth(local/span)}
+export const transitionDistance=viewport=>Math.max(360,viewport*.9);
+export function transitionAt(stage,local,reduced=false,span=.65){return stage===0||reduced?1:clamp(local/span)}
 export function craftFor(kind,stage){
  if(kind==='sputnik')return 'sputnik';
  if(kind==='human')return stage===2?'voskhod2':'vostok';
@@ -17,16 +18,21 @@ export function craftFor(kind,stage){
  if(kind==='stations')return stage===0?'salyut1':'mir';
  return null;
 }
-export function sceneBlend(kind,stage,local,reduced=false,span=.38){
+export function sceneBlend(kind,stage,local,reduced=false,span=.65){
  const current=craftFor(kind,stage),previous=craftFor(kind,Math.max(0,stage-1)),t=transitionAt(stage,local,reduced,span);
- const different=previous!==current;
- const outgoing=different&&previous?(current?1-smooth(t/.46):1-smooth(t/.68)):0;
- const incoming=!different?1:current?(previous?smooth((t-.54)/.46):smooth((t-.32)/.68)):0;
+ const different=previous!==current,eased=smooth(t);
+ // One easing per channel, over explicit intervals; never ease an already eased clock.
+ const outgoing=different&&previous?(current?1-smooth(t/.5):1-smooth(t/.7)):0;
+ const incoming=!different?1:current?(previous?smooth((t-.5)/.5):smooth((t-.3)/.7)):0;
  const weights={};if(previous&&outgoing>0)weights[previous]=outgoing;if(current&&incoming>0)weights[current]=incoming;
- const close=['moon','venus','mars'].includes(kind)?(previous?1:0)*(1-t)+(current?1:0)*t:0;
- const main=Object.entries(weights).sort((a,b)=>b[1]-a[1])[0];
- return {current,previous,t,close,weights,main:main&&main[1]>.52?main[0]:'planet'};
+ const close=['moon','venus','mars'].includes(kind)?(previous?1:0)*(1-eased)+(current?1:0)*eased:0;
+ const candidate=Object.entries(weights).sort((a,b)=>b[1]-a[1])[0];
+ return {current,previous,t,eased,close,weights,main:candidate&&candidate[1]>=.85?candidate[0]:'planet'};
 }
+export function craftComposition(weight,planetary=true){
+ return {scale:planetary?.88+.12*weight:1,y:planetary?-.3*(1-weight):0,z:planetary?.35*(1-weight):0};
+}
+
 export function mirAssembly(stage,local){
  if(stage<2)return [0,0,0];
  if(stage===2)return [smooth(local/.42),0,0];
@@ -34,5 +40,5 @@ export function mirAssembly(stage,local){
 }
 
 export function planetComposition(close){
- const shift=smooth(close/.6);return {scale:1+3.4*close,y:-10.2*shift,z:-4.5*shift};
+ return {scale:1+3.4*close,y:-10.2*close,z:-24*close};
 }
